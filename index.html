@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>Pass Generator</title>
+
+      <!-- Template Main CSS File -->
+    <link href="./css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <!-- Favicons -->
+    <link href="./img/favicon.png" rel="icon">
+    <link href="./img/apple-touch-icon.png" rel="apple-touch-icon">
+</head>
+<body>
+    <main id="main" class="main">
+        <div class="content">
+            <h1>Generate a random and security Password!</h1>
+            <div class="result" id="result">
+                <input type="text" id="generatedPass" readonly="">
+                    <button onclick="generatePass()"><i class="fa fa-refresh" aria-hidden="true"></i></button>
+                    <button id="copy" onclick="copiarSenha()"><i class="fa fa-files-o" aria-hidden="true"></i></button>
+            </div>
+            <div id="progressBar">
+                <div id="myBar"></div>
+            </div>
+            <div class="card">
+                <h3>Customize your passcode</h3>
+            
+                <p>Pass size:</p>
+                <input type="range" onchange="generatePass()" oninput="document.getElementById('size').value = this.value;" id="passSize" min="1" max="25" value="8">
+                <input class="size" onchange="generatePass()" id="size" type="number" value="8" max="25" oninput="document.getElementById('passSize').value = this.value;"/>
+                <div class="options">
+                    <label for="upCheck"><input onchange="generatePass()" type="checkbox"  id="upCheck" checked/>UpperCase</label>
+                    <label for="downCheck"><input onchange="generatePass()" type="checkbox"  id="downCheck" checked/>DownCase</label>
+                    <label for="numCheck"><input type="checkbox"  onchange="generatePass()" id="numCheck" checked/>Numbers</label>
+                    <label for="specialCheck"><input type="checkbox"  onchange="generatePass()" id="specialCheck" checked/>Symbols</label>
+                </div>
+            </div>
+        </div>
+    </main>
+     <!-- Template Main JS File -->
+    <script src="./js/main.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.js"></script>
+</body>
+</html>
+
