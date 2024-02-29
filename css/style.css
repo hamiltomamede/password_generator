@@ -124,13 +124,13 @@ h1, h3, h4 {
 #progressBar {
     display: flex;
     flex-direction: column;
-    margin-bottom: 20px;
+    margin-bottom: 8px;
     background-color: #fff;
     border-radius: 0px 0px 10px 10px;
 }
 #myBar {
-    width: 25%;
-    height: 10px;
+    width: 50%;
+    height: 8px;
     background-color: yellow;
     display: block;
 }

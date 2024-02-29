@@ -23,7 +23,7 @@
             <div class="result" id="result">
                 <input type="text" id="generatedPass" readonly="">
                     <button onclick="generatePass()"><i class="fa fa-refresh" aria-hidden="true"></i></button>
-                    <button id="copy" onclick="copiarSenha()"><i class="fa fa-files-o" aria-hidden="true"></i></button>
+                    <button id="copy" onclick="copyPass()"><i class="fa fa-files-o" aria-hidden="true"></i></button>
             </div>
             <div id="progressBar">
                 <div id="myBar"></div>
@@ -32,8 +32,8 @@
                 <h3>Customize your passcode</h3>
             
                 <p>Pass size:</p>
-                <input type="range" onchange="generatePass()" oninput="document.getElementById('size').value = this.value;" id="passSize" min="1" max="25" value="8">
-                <input class="size" onchange="generatePass()" id="size" type="number" value="8" max="25" oninput="document.getElementById('passSize').value = this.value;"/>
+                <input type="range" onchange="generatePass()" oninput="document.getElementById('size').value = this.value;" id="passSize" min="4" max="25" value="8">
+                <input class="size" onchange="generatePass()" id="size" type="number" value="8" min="4" max="25" oninput="document.getElementById('passSize').value = this.value;"/>
                 <div class="options">
                     <label for="upCheck"><input onchange="generatePass()" type="checkbox"  id="upCheck" checked/>UpperCase</label>
                     <label for="downCheck"><input onchange="generatePass()" type="checkbox"  id="downCheck" checked/>DownCase</label>

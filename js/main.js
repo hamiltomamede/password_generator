@@ -24,18 +24,25 @@ function generatePass() {
     var passSize = document.getElementById("passSize").value
     var allowedChars = ''
 
-    var pass = "";
+    var hasUpper = isChecked('upCheck');
+    var hasLower = isChecked('downCheck');
+    var hasNumber = isChecked('numCheck');
+    var hasSymbol = isChecked('specialCheck')
 
-    if (document.getElementById('upCheck').checked) allowedChars += 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
-    if (document.getElementById('downCheck').checked) allowedChars += 'abcdefghijklmnopqrstuvwxyz'
-    if (document.getElementById('numCheck').checked) allowedChars += '0123456789'
-    if (document.getElementById('specialCheck').checked) allowedChars += '!@#$%^&*()_+/'
+    if (hasUpper) allowedChars += 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    if (hasLower) allowedChars += 'abcdefghijklmnopqrstuvwxyz';
+    if (hasNumber) allowedChars += '0123456789';
+    if (hasSymbol) allowedChars += '!@#$%^&*()_+{}[]';
+
+    var minSize = (hasUpper + hasLower + hasNumber + hasSymbol)
+    var pass = '';
 
     for (var i = 0; i < passSize; i++) {
-        pass += allowedChars[Math.floor(Math.random() * allowedChars.length)];
+        pass += allowedChars.charAt(Math.floor(Math.random() * allowedChars.length));
     }
-    if (allowedChars.length === 0) {
-        showNotification('Selecione pelo menos um tipo de caractere!', 'error');
+
+    if (minSize === 0) {
+        showNotification('Select at least one character type!', 'error');
         return;
     }
 
@@ -48,11 +55,15 @@ function generatePass() {
     } else {
         move(100, 'green');
     }
-    pass = pass.split('').sort(function () { return 0.5 - Math.random() }).join('');
 
     document.getElementById("generatedPass").value = pass;
 }
-function copiarSenha() {
+
+function isChecked(id) {
+    return document.getElementById(id).checked
+}
+
+function copyPass() {
     var generatedPass = document.getElementById("generatedPass").value;
     var textarea = document.createElement("textarea");
     textarea.value = generatedPass;
@@ -60,7 +71,7 @@ function copiarSenha() {
     textarea.select();
     document.execCommand("copy");
     document.body.removeChild(textarea);
-    showNotification('Senha copiada para a área de transferência!', 'success');
+    showNotification('Password copied to clipboard!', 'success');
 }
 function move(progress, color) {
 
@@ -68,7 +79,12 @@ function move(progress, color) {
     var width = progress;
     elem.style.width = width + "%";
     elem.style.backgroundColor = color;
+    if (width == 100) {
+        elem.style.borderRadius = '0px 0px 10px 10px';
+    } else {
+        elem.style.borderRadius = '0px 0px 0px 10px';
+    }
 }
 window.onload = function () {
-    var senha = generatePass(); // Gerar senha inicial
+    var pass = generatePass();
 };
