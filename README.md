@@ -1,5 +1,5 @@
 
-# Generate Password
+# Password Generator
 
 This is a simple app to easily generate a random passwords. 
 
