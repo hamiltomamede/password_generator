@@ -1,7 +1,7 @@
 
 # Generate Password
 
-This is a simple app to easily generate a random password. 
+This is a simple app to easily generate a random passwords. 
 
 ## Table of contents
 
@@ -16,18 +16,18 @@ This is a simple app to easily generate a random password.
 
 ### Screenshot
 
-![ PassGenerator - screenshot](https://github.com/hamiltomamede/password_generator/blob/main/screenshot.png)
-
+![ PassGenerator - screenshot](https://github.com/hamiltomamede/password_generator/blob/master/screenshot.png)
 ### Links
 
-- Solution URL: (https://hamiltomamede.github.io/password_generator/)
-
+- Web version: (https://hamiltomamede.github.io/password_generator/)
+- Android App: - Android App: [PassGenerator](https://www.webintoapp.com/download/zip/284005/PassGenerator%201.0.zip?NFFh23ArNnDm)
 
 ### Built with
 
 - Semantic HTML5 markup
 - SASS/SCSS
 - Flexbox
+- JavaScript
 
 
 ## Author
